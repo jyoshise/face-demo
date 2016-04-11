@@ -1,0 +1,10 @@
+applications:
+- name: flaskbars
+  memory: 64M
+  services:
+    ${name}-db:
+      type: postgresql
+  stackato:
+    hooks:
+      pre-running:
+      - python manage.py createDbSchema
