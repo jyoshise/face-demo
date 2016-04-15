@@ -28,12 +28,13 @@ def index():
 def upload():
     f = request.files["file"]
     filename = secure_filename(f.filename)
-    f.save(os.path.join(UPLOADDIR, filename))
+    f.save('/var/www/uploads/' + filename))
     return redirect(url_for("view_upload", filename=filename))
+
 
 @app.route("/view_upload/<path:filename>")
 def view_upload(filename):
-    return send_from_directory(UPLOADDIR, filename)
+    return send_from_directory('/var/www/uploads/', filename)
 
 @app.route("/addBar", methods=['POST'])
 def addBar():
