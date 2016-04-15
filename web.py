@@ -5,7 +5,7 @@ from flask import send_from_directory
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import secure_filename
 
-UPLOAD_FOLDER = '/var/www/uploads'
+UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 
