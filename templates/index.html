@@ -14,9 +14,11 @@
     </script>
   </head>
   <body>
-    <form action="/addBar" method="POST">
-      <input name="name"/>
-      <input type="submit"/>
+    <td>Select file</td>
+
+    <form action="/upload" method="POST">
+      <input name="name" type="file">
+      <input type="submit">
     </form>
     <ul id="bars">
     </ul>
