@@ -61,7 +61,7 @@ def upload_file():
     </form>
     '''
 
-@app.route('/detect/<input_filename>')
+@app.route('/detect')
 # [START main]
 def main(input_filename, output_filename, max_results):
     with open(input_filename, 'rb') as image:
