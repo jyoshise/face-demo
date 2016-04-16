@@ -47,8 +47,10 @@ def upload_file():
 #        max_results = request.form.get['faces']
         max_results = 10
         if file and allowed_file(file.filename):
-            input_filename = app.config['UPLOAD_FOLDER'] + "/" + secure_filename(file.filename)
-            output_filename = app.config['UPLOAD_FOLDER'] + "/out_" + secure_filename(file.filename)
+            infile = secure_filename(file.filename)
+            outfile = "/out_" + secure_filename(file.filename)
+            input_filename = app.config['UPLOAD_FOLDER'] + infile
+            output_filename = app.config['UPLOAD_FOLDER'] + outfile
             file.save(input_filename)
 # [START main]
     with open(input_filename, 'rb') as image:
@@ -59,7 +61,7 @@ def upload_file():
         # Reset the file pointer, so we can read the file again
         image.seek(0)
         highlight_faces(image, faces, output_filename)
-    return render_template('show_result.html', input_filename=input_filename, output_filename=output_filename, faces=faces)
+    return render_template('show_result.html', input_filename=infile, output_filename=outfile, faces=len(faces))
 
 # [END main]
 
