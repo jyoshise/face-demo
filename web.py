@@ -4,16 +4,10 @@ from flask import Flask, render_template, redirect, url_for, request, make_respo
 from flask import send_from_directory
 from werkzeug import secure_filename
 
-app.config['UPLOAD_FOLDER'] = '/home/stackato/app/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
-
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-
-if not os.environ.get('PROD'):
-    app.config['SQLALCHEMY_ECHO'] = True
-    app.debug = True
+app.config['UPLOAD_FOLDER'] = '/home/stackato/app/uploads'
 
 @app.route("/")
 def index():
