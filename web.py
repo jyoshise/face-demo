@@ -44,7 +44,8 @@ def allowed_file(filename):
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
-        max_results = request.form.get['faces']
+#        max_results = request.form.get['faces']
+        max_results = 10
         if file and allowed_file(file.filename):
             input_filename = app.config['UPLOAD_FOLDER'] + "/" + secure_filename(file.filename)
             output_filename = app.config['UPLOAD_FOLDER'] + "/out_" + secure_filename(file.filename)
