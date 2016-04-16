@@ -2,7 +2,6 @@ import os
 import simplejson
 from flask import Flask, render_template, redirect, url_for, request, make_response
 from flask import send_from_directory
-from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import secure_filename
 
 app.config['UPLOAD_FOLDER'] = '/home/stackato/app/uploads'
