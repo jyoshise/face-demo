@@ -50,20 +50,7 @@ def upload_file():
             input_filename = app.config['UPLOAD_FOLDER'] + "/" + secure_filename(file.filename)
             output_filename = app.config['UPLOAD_FOLDER'] + "/out_" + secure_filename(file.filename)
             file.save(input_filename)
-            return redirect(url_for('main', input_filename=input_filename, output_filename=output_filename, max_results=max_results))
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form action="" method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
-    '''
-
-@app.route('/detect')
 # [START main]
-def main(input_filename, output_filename, max_results):
     with open(input_filename, 'rb') as image:
         faces = detect_face(image, max_results)
 #        print('Found %s face%s' % (len(faces), '' if len(faces) == 1 else 's'))
