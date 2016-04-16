@@ -34,7 +34,7 @@ def get_vision_service():
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('layout.html')
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -44,8 +44,8 @@ def allowed_file(filename):
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
-#        max_results = request.form.get['faces']
-        max_results = 10
+        max_results = request.form['faces']
+#        max_results = 10
         if file and allowed_file(file.filename):
             infile = secure_filename(file.filename)
             outfile = "out_" + secure_filename(file.filename)
