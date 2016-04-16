@@ -48,9 +48,9 @@ def upload_file():
         max_results = 10
         if file and allowed_file(file.filename):
             infile = secure_filename(file.filename)
-            outfile = "/out_" + secure_filename(file.filename)
-            input_filename = app.config['UPLOAD_FOLDER'] + infile
-            output_filename = app.config['UPLOAD_FOLDER'] + outfile
+            outfile = "out_" + secure_filename(file.filename)
+            input_filename = app.config['UPLOAD_FOLDER'] + "/" + infile
+            output_filename = app.config['UPLOAD_FOLDER'] + "/" + outfile
             file.save(input_filename)
 # [START main]
     with open(input_filename, 'rb') as image:
