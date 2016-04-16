@@ -3,7 +3,8 @@
   <head>
     <title>Bars with Flask</title>
   </head>
-  <body>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <div class=page>
     <form action="/upload" method="POST" enctype=multipart/form-data>
       <table>
         <tr>
@@ -17,5 +18,8 @@
       </table>
       <input type="submit">
     </form>
-  </body>
-</html>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>

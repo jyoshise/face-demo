@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+<table>
+  <tr>
+    <td>Original Image</td>
+    <td><img src={{ input_filename }}></td>
+  </tr>
+  <tr>
+    <td>Output Image</td>
+    <td><img src={{ output_filename }}></td>
+  </tr>
+  <tr>
+    <td>Detected faces</td>
+    <td>{{ faces }}</td>
+  </tr>
+</table>
+{% endblock %}

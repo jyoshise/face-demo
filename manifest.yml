@@ -1,3 +1,6 @@
 applications:
 - name: flask-test
   memory: 64M
+env:
+  GOOGLE_APPLICATION_CREDENTIALS: vision-5df21ed7c517.json
+  

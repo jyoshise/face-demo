@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vision-1275",
+  "private_key_id": "5df21ed7c5178568bb02f9aeb693915030441cba",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCA3pWQDg3oMgFC\nf1VGilpIqcKvMmEEEHeMSZYgoZ9uUr5qOWhu37tLuFgeGsJYQZMj4jSmHKoLDmB9\nfLesI0wzEkC8vuOy8xO9H952KIt4OnVBinctaV59Aby+p35V+q0gf1AYSu5rJcer\nrHODuNsp/uCraChC1GHPjhRqmU0xspKrcNhpO/l4uLZwAfgYdOhJrpfsssF27ibk\nH7VyXqo1onRzDGpelBUh6sA+C0WKtdLv4rPTUDD93A5JyfgISVPvoA+6jMX9XdLF\nTkLSDPjLsgbq9jO9Vq/bDgb70epdcogA053cD1BmaYIJL/SUFdPOjcKRvVkr7j+H\nfp2A0YURAgMBAAECggEAcR9ymK7NpGro0i+mcrKWSDzEyjfmE8REvOAHqgNWSWjW\n/7X/J3y8E97xcxO4T/LYL+Ksprh4yBXJu74UGUYu6JH4Q/cpN/fK9vSXuo8ixtpB\n/dOHhFR/fipdPdsXum+/M8yuSXTVTzctzFQoXpORx46WN8DJvshiR+kHoP+LVLiR\nL7kF9B0ET5xdDVssqWnWnMmvR0B5nNFzoL92FYmA3dfzrHNBApjEt/VxabLbBZMy\nx038frdY54QgOdEOnP3hn9gFoIcvtyb0vwuG7XqEBgrh7mmeJdy6yg2AuXPSkY4F\nrbP702yMrtWL1Xv1XfjpkUYXM/R0ejl09GyZNMb/8QKBgQDa+5mdJiCdwUrGDeVN\nlPW+eOpzWFkflByG3ndmRNjZIXCwSDCyNC+lGIwjuMLzNF4UBQyftJlfvaexIxKT\nlU5LE2tvvhAT2yZhmdWcmqgHdA1p+G9oyY9QkoTRkIVK3ruL/y2tCAZbMhBdlvgZ\nIhQPFOREyVpduW/RBjayGtkWvQKBgQCWp1zZ2R5bCrKu2bLIzBl8nfN8Qt02gymy\nNCCvYX/untQMZ+FnhAc7gsa6rVt9HM8C3rYTWfl7xKyjQXRqIakPSX9WULPtYgn2\n2H8ml6YVQVhHcxZGGPQ86b4FfBT+jqEqVNh4xrgZAcTwXlY6iCBS33qmNc2UDxrg\nhYl8htLG5QKBgQC/kEgSbE8uEfCKj49frgbIKFjYrJnSgSvvY9/JjEKyt4kv/Qb0\nbaicYXv+p9uLC+2cz8n6T++4DF4NHKRcjMlf7c4Xg4nnBNhvmzZ99+E0G/a8FEPJ\nxEFl97bO6QFhvLUORB29934v+vzMEoxY2DH5+4mxDv/Ja7YAgdIJPmlYdQKBgQCS\nnM+UxmJvUWrxFLWUCmSnTQQfIucrXNwgK/C/HRCmhXVxmUrYNbngJXYHSBxoFrgz\nX9Ar5v0PgShNPK7xdk6TrQA6XRGtbCKsUqbzRNQBjXU/G3ZKw5A1E3i017uKu/2G\nN8nvR9zzoTAqiHQ8RCvI2un+hQ/LDiQm6m4RfRf1LQKBgQDRWBNMdb7n8mZQiTFR\n18WkO6o97xHi6GrtolbTiQvmLD7QTj8xhBy014eVjN1BOBI0Nd6ILDB2AOSaz7RF\nHiTgBfXfWx2WQ1DIcSOmf7bgNaipi6mVfTpnfzrO44wo6OkuJ4jFmhiPrVWCVOnK\nDfAIDPbu4VDJcNymB+9/aK4zJA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "face-detection@vision-1275.iam.gserviceaccount.com",
+  "client_id": "108955661557209780308",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/face-detection%40vision-1275.iam.gserviceaccount.com"
+}
