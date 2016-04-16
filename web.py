@@ -59,7 +59,7 @@ def upload_file():
         # Reset the file pointer, so we can read the file again
         image.seek(0)
         highlight_faces(image, faces, output_filename)
-    return render_template('show_results.html', input_filename=input_filename, output_filename=output_filename, faces=faces)
+    return render_template('show_result.html', input_filename=input_filename, output_filename=output_filename, faces=faces)
 
 # [END main]
 
