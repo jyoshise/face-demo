@@ -18,7 +18,7 @@ from oauth2client.client import GoogleCredentials
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = '/home/stackato/app/upfile'
+app.config['UPLOAD_FOLDER'] = '/home/stackato/app/static'
 app.debug = True
 
 # [START get_vision_service]

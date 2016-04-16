@@ -3,11 +3,11 @@
 <table>
   <tr>
     <td>Original Image</td>
-    <td><img src=upfile/{{ infile }}></td>
+    <td><img src={{url_for('static', filename=input_filename)}}></td>
   </tr>
   <tr>
     <td>Output Image</td>
-    <td><img src=upfile/{{ outfile }}></td>
+    <td><img src={{url_for('static', filename=output_filename)}}></td>
   </tr>
   <tr>
     <td>Detected faces</td>
