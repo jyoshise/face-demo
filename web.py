@@ -7,7 +7,9 @@ from werkzeug import secure_filename
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = '/home/stackato/app/uploads'
+app.config['UPLOAD_FOLDER'] = '/home/stackato/app/upfile'
+app.debug = True
+
 
 @app.route("/")
 def index():
