@@ -2,25 +2,12 @@
 <html>
   <head>
     <title>Bars with Flask</title>
-    <script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        $.get("listBars", function(data) {
-            $.each(data, function(index, item) {
-                $("#bars").append("<li>Bar " + item.name + "</li>");
-            });
-        });
-    });
-    </script>
   </head>
   <body>
     <td>Select file</td>
-
     <form action="/upload" method="POST">
       <input name="name" type="file">
       <input type="submit">
     </form>
-    <ul id="bars">
-    </ul>
   </body>
 </html>
