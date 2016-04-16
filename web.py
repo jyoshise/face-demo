@@ -5,7 +5,7 @@ from flask import send_from_directory
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import secure_filename
 
-UPLOAD_FOLDER = '/home/stackato/app/.python/lib/python2.7/site-packages/flask/uploads'
+UPLOAD_FOLDER = '/home/stackato/app/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 
