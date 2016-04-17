@@ -1,4 +1,4 @@
-# Google Cloud Vision API sample app
+# Face detection with machine learning API
 
 Written in Python with Flask flamework
 
