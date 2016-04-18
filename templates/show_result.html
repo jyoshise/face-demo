@@ -17,11 +17,11 @@
     <td>API output</td>
     <td>
       <table>
-        {% for face in faces %}
-        <tr><td colspan="2">Detected face {{ face }}</td></tr>
+        {% for c in range(len(faces)) %}
+        <tr><td colspan="2">Detected face {{ c }}</td></tr>
         <tr>
           <td>rollAngle</td>
-          <td>{{ face.rollAngle }}</td>
+          <td>{{ faces[c].rollAngle }}</td>
         </tr>
         {% endfor %}
       </table>
