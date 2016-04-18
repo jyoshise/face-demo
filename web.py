@@ -67,15 +67,15 @@ def upload_file():
     with open(input_filename, 'rb') as image:
 # google vision API
         g_faces = detect_face(image, max_results)
-#        print('Found %s face%s' % (len(faces), '' if len(faces) == 1 else 's'))
+# Haven API
+        image.seek(0)
+        h_faces = hodpostrequests('detectfaces', file={'file': image})
 
-#        print('Writing to file %s' % output_filename)
         # Reset the file pointer, so we can read the file again
         image.seek(0)
         g_highlight_faces(image, g_faces, g_output_filename)
-# Haven API
-        h_faces = hodpostrequests('detectfaces', files={'file': image})
-#        h_highlight_faces(image, h_faces, h_output_filename)
+        image.seek(0)
+        h_highlight_faces(image, h_faces, h_output_filename)
 
     return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(g_faces), faces=g_faces, h_faces=h_faces)
 
