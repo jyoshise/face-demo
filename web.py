@@ -67,12 +67,10 @@ def upload_file():
         image.seek(0)
         g_highlight_faces(image, g_faces, g_output_filename)
 # Haven API
-        data = {'file': image}
-        r = hodclient.post('detectfaces', data)
-        h_faces = r.json()['face']
-        h_highlight_faces(image, h_faces, h_output_filename)
+        h_faces = hodclient.post('detectfaces', file=image)
+#        h_highlight_faces(image, h_faces, h_output_filename)
 
-    return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(faces), faces=faces)
+    return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(faces), faces=faces, h_faces=h_faces)
 
 # [END main]
 
