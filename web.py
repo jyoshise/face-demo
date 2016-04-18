@@ -68,7 +68,8 @@ def upload_file():
         g_highlight_faces(image, g_faces, g_output_filename)
 # Haven API
         data = {'file': image}
-        h_faces = hodclient.post('detectfaces', data)
+        r = hodclient.post('detectfaces', data)
+        h_faces = r.json()['face']
         h_highlight_faces(image, h_faces, h_output_filename)
 
     return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(faces), faces=faces)
@@ -117,8 +118,8 @@ def h_highlight_faces(image, faces, output_filename):
     draw = ImageDraw.Draw(im)
 
     for face in faces:
-        lefttop = (face.get('left', 0.0), face.get('top', 0.0))
-        size = (face.get('width', 0.0), face.get('height', 0.0))
+        lefttop = (face.json()['left'], face.json()['top'])
+        size = (face.json()['width'], face.json()['height'])
         draw.line(lefttop + [size], width=5, fill='#00ff00')
     del draw
     return im.save(output_filename)
