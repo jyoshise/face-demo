@@ -14,6 +14,8 @@ from googleapiclient import discovery
 import httplib2
 from oauth2client.client import GoogleCredentials
 
+from havenondemand.hodindex import HODClient
+hodclient = HODClient(apikey=os.environ['HAVEN_API_KEY'], apiversiondefault=1)
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -48,34 +50,33 @@ def upload_file():
 #        max_results = 10
         if file and allowed_file(file.filename):
             infile = secure_filename(file.filename)
-            outfile = "out_" + secure_filename(file.filename)
+            g_outfile = "g_out_" + secure_filename(file.filename)
+            h_outfile = "h_out_" + secure_filename(file.filename)
             input_filename = app.config['UPLOAD_FOLDER'] + "/" + infile
-            output_filename = app.config['UPLOAD_FOLDER'] + "/" + outfile
+            g_output_filename = app.config['UPLOAD_FOLDER'] + "/" + g_outfile
+            h_output_filename = app.config['UPLOAD_FOLDER'] + "/" + h_outfile
             file.save(input_filename)
 # [START main]
     with open(input_filename, 'rb') as image:
-        faces = detect_face(image, max_results)
+# google vision API
+        g_faces = detect_face(image, max_results)
 #        print('Found %s face%s' % (len(faces), '' if len(faces) == 1 else 's'))
 
 #        print('Writing to file %s' % output_filename)
         # Reset the file pointer, so we can read the file again
         image.seek(0)
-        highlight_faces(image, faces, output_filename)
-    return render_template('show_result.html', input_filename=infile, output_filename=outfile, count=len(faces), faces=faces)
+        g_highlight_faces(image, g_faces, g_output_filename)
+# Haven API
+        h_faces = hodclient.post('detectfaces', image)
+        h_highlight_faces(image, h_faces, h_output_filename)
+
+    return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(faces), faces=faces)
 
 # [END main]
 
 
 # [START detect_face]
 def detect_face(face_file, max_results=4):
-    """Uses the Vision API to detect faces in the given file.
-
-    Args:
-        face_file: A file-like object containing an image with faces.
-
-    Returns:
-        An array of dicts with information about the faces in the picture.
-    """
     image_content = face_file.read()
     batch_request = [{
         'image': {
@@ -98,23 +99,26 @@ def detect_face(face_file, max_results=4):
 
 
 # [START highlight_faces]
-def highlight_faces(image, faces, output_filename):
-    """Draws a polygon around the faces, then saves to output_filename.
-
-    Args:
-      image: a file containing the image with the faces.
-      faces: a list of faces found in the file. This should be in the format
-          returned by the Vision API.
-      output_filename: the name of the image file to be created, where the faces
-          have polygons drawn around them.
-    """
+def g_highlight_faces(image, faces, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
 
     for face in faces:
         box = [(v.get('x', 0.0), v.get('y', 0.0)) for v in face['fdBoundingPoly']['vertices']]
         draw.line(box + [box[0]], width=5, fill='#00ff00')
+    del draw
+    return im.save(output_filename)
+# [END highlight_faces]
 
+# [START highlight_faces]
+def h_highlight_faces(image, faces, output_filename):
+    im = Image.open(image)
+    draw = ImageDraw.Draw(im)
+
+    for face in faces:
+        lefttop = (face.get('left', 0.0), face.get('top', 0.0))
+        size = (face.get('width', 0.0), face.get('height', 0.0))
+        draw.line(lefttop + [size], width=5, fill='#00ff00')
     del draw
     return im.save(output_filename)
 # [END highlight_faces]
