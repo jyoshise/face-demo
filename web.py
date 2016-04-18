@@ -69,7 +69,7 @@ def upload_file():
         g_faces = detect_face(image, max_results)
 # Haven API
         image.seek(0)
-        h_faces = hodpostrequests('detectfaces', file={'file': image})
+        h_faces = hodpostrequests('detectfaces', files={'file': image})
 
         # Reset the file pointer, so we can read the file again
         image.seek(0)
