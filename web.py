@@ -77,7 +77,7 @@ def upload_file():
         h_faces = hodpostrequests('detectfaces', files={'file': image})
 #        h_highlight_faces(image, h_faces, h_output_filename)
 
-    return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(faces), faces=faces, h_faces=h_faces)
+    return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(g_faces), faces=g_faces, h_faces=h_faces)
 
 # [END main]
 
