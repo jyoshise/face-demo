@@ -3,19 +3,29 @@
 <table>
   <tr>
     <td>Original Image</td>
-    <td><img src={{url_for('static', filename=input_filename)}} width="500"></td>
+    <td colspan="3"><img src={{url_for('static', filename=input_filename)}} width="500"></td>
   </tr>
   <tr>
     <td>Output Image</td>
-    <td><img src={{url_for('static', filename=output_filename)}} width="500"></td>
+    <td colspan="3"><img src={{url_for('static', filename=output_filename)}} width="500"></td>
   </tr>
   <tr>
     <td>Detected faces</td>
-    <td>{{ count }}</td>
+    <td colspan="3">{{ count }}</td>
   </tr>
   <tr>
     <td>API output</td>
-    <td>{{ faces }}</td>
+    <td>
+      <table>
+        {% for face in faces %}
+        <tr><td colspan="2">Detected face {{ face }}</td></tr>
+        <tr>
+          <td>rollAngle</td>
+          <td>{{ face.rollAngle }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </td>
   </tr>
 </table>
 {% endblock %}
