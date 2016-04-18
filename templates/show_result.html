@@ -17,11 +17,47 @@
     <td>API output</td>
     <td>
       <table>
-        {% for c in range(len(faces)) %}
-        <tr><td colspan="2">Detected face {{ c }}</td></tr>
+        {% for face in faces %}
+        <tr><td colspan="2">Detected face {{ face }}</td></tr>
         <tr>
-          <td>rollAngle</td>
-          <td>{{ faces[c].rollAngle }}</td>
+          <td>boundingPoly</td>
+          <td>{{ face.boundingPoly }}</td>
+        </tr>
+        <tr>
+          <td>panAngle</td>
+          <td>{{ face.panAngle }}</td>
+        </tr>
+        <tr>
+          <td>tiltAngle</td>
+          <td>{{ face.tiltAngle }}</td>
+        </tr>
+        <tr>
+          <td>joyLikelihood</td>
+          <td>{{ face.joyLikelihood }}</td>
+        </tr>
+        <tr>
+          <td>sorrowLikelihood</td>
+          <td>{{ face.sorrowLikelihood }}</td>
+        </tr>
+        <tr>
+          <td>angerLikelihood</td>
+          <td>{{ face.angerLikelihood }}</td>
+        </tr>
+        <tr>
+          <td>surpriseLikelihood</td>
+          <td>{{ face.surpriseLikelihood }}</td>
+        </tr>
+        <tr>
+          <td>underExposedLikelihood</td>
+          <td>{{ face.underExposedLikelihood }}</td>
+        </tr>
+        <tr>
+          <td>blurredLikelihood</td>
+          <td>{{ face.blurredLikelihood }}</td>
+        </tr>
+        <tr>
+          <td>headwearLikelihood</td>
+          <td>{{ face.headwearLikelihood }}</td>
         </tr>
         {% endfor %}
       </table>
