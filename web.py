@@ -16,6 +16,7 @@ from oauth2client.client import GoogleCredentials
 
 from havenondemand.hodindex import HODClient
 hodclient = HODClient(apikey=os.environ['HAVEN_API_KEY'], apiversiondefault=1)
+hodurl="http://api.havenondemand.com/1/api/sync/{}/v1"
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -33,6 +34,11 @@ def get_vision_service():
                            discoveryServiceUrl=DISCOVERY_URL)
 # [END get_vision_service]
 
+def hodpostrequests(function,data={},files={}):
+               data["apikey"]=os.environ['HAVEN_API_KEY']
+               callurl=hodurl.format(function)
+               r=requests.post(callurl,data=data,files=files)
+               return r.json()
 
 @app.route("/")
 def index():
@@ -67,7 +73,7 @@ def upload_file():
         image.seek(0)
         g_highlight_faces(image, g_faces, g_output_filename)
 # Haven API
-        h_faces = hodclient.post('detectfaces', file=image)
+        h_faces = hodpostrequests('detectfaces', file=image)
 #        h_highlight_faces(image, h_faces, h_output_filename)
 
     return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(faces), faces=faces, h_faces=h_faces)
