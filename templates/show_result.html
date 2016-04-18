@@ -17,10 +17,8 @@
     <td>API output</td>
     <td>
       <table>
-        {% c = 0 %}
         {% for face in faces %}
-        {% c += 1 %}
-        <tr><td colspan="2">Detected face {{ c }}</td></tr>
+        <tr><td colspan="2">Detected face</td></tr>
         <tr>
           <td>boundingPoly</td>
           <td>{{ face.boundingPoly }}</td>
