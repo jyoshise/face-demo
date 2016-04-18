@@ -75,7 +75,7 @@ def upload_file():
         image.seek(0)
         g_highlight_faces(image, g_faces, g_output_filename)
         image.seek(0)
-        h_highlight_faces(image, h_faces, h_output_filename)
+#        h_highlight_faces(image, h_faces, h_output_filename)
 
     return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(g_faces), faces=g_faces, h_faces=h_faces)
 
@@ -123,8 +123,8 @@ def h_highlight_faces(image, faces, output_filename):
     draw = ImageDraw.Draw(im)
 
     for face in faces:
-        lefttop = (face.get('x', 0.0), face.get('y', 0.0))
-        size = (face.get('width', 0.0), face.get('height', 0.0))
+        lefttop = (face.get('x'), face.get('y'))
+        size = (face.get('width'), face.get('height'))
         draw.line(lefttop + [size], width=5, fill='#00ff00')
     del draw
     return im.save(output_filename)
