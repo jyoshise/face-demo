@@ -123,8 +123,8 @@ def h_highlight_faces(image, faces, output_filename):
     draw = ImageDraw.Draw(im)
 
     for face in faces:
-        lefttop = (face.json()['left'], face.json()['top'])
-        size = (face.json()['width'], face.json()['height'])
+        lefttop = (face.get('x', 0.0), face.get('y', 0.0))
+        size = (face.get('width', 0.0), face.get('height', 0.0))
         draw.line(lefttop + [size], width=5, fill='#00ff00')
     del draw
     return im.save(output_filename)
