@@ -1,40 +1,44 @@
 import os
 import simplejson
 import requests
+import argparse
+import base64
+import httplib2
+
 from flask import Flask, render_template, redirect, url_for, request, make_response
 from flask import send_from_directory
 from werkzeug import secure_filename
-
-import argparse
-import base64
-
 from PIL import Image
 from PIL import ImageDraw, ImageFont
-
 from googleapiclient import discovery
-import httplib2
 from oauth2client.client import GoogleCredentials
-
 from havenondemand.hodindex import HODClient
-hodclient = HODClient(apikey=os.environ['HAVEN_API_KEY'], apiversiondefault=1)
-hodurl="http://api.havenondemand.com/1/api/sync/{}/v1"
-
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/home/stackato/app/static'
 app.debug = True
 
-# [START get_vision_service]
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
+"""
+API call for Google Cloud Vision API
+credentials must be specified as environment variable GOOGLE_APPLICATION_CREDENTIALS.
+"""
 DISCOVERY_URL='https://{api}.googleapis.com/$discovery/rest?version={apiVersion}'
-
-
 def get_vision_service():
     credentials = GoogleCredentials.get_application_default()
     return discovery.build('vision', 'v1', credentials=credentials,
                            discoveryServiceUrl=DISCOVERY_URL)
-# [END get_vision_service]
 
+"""
+API call for HPE Heaven OnDemand
+API key for HOD must be specified as environment variable HAVEN_API_KEY.
+"""
+hodclient = HODClient(apikey=os.environ['HAVEN_API_KEY'], apiversiondefault=1)
+hodurl="http://api.havenondemand.com/1/api/sync/{}/v1"
 def hodpostrequests(function,data={},files={}):
                data["apikey"]=os.environ['HAVEN_API_KEY']
                callurl=hodurl.format(function)
@@ -45,16 +49,11 @@ def hodpostrequests(function,data={},files={}):
 def index():
     return render_template('layout.html')
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
         max_results = request.form['faces']
-#        max_results = 10
         if file and allowed_file(file.filename):
             infile = secure_filename(file.filename)
             g_outfile = "g_out_" + secure_filename(file.filename)
@@ -63,23 +62,17 @@ def upload_file():
             g_output_filename = app.config['UPLOAD_FOLDER'] + "/" + g_outfile
             h_output_filename = app.config['UPLOAD_FOLDER'] + "/" + h_outfile
             file.save(input_filename)
-# [START main]
+
     with open(input_filename, 'rb') as image:
-# google vision API
         g_faces = detect_face(image, max_results)
-# Haven API
         image.seek(0)
         h_faces = hodpostrequests('detectfaces', files={'file': image}, data={'additional': True})
-
-        # Reset the file pointer, so we can read the file again
         image.seek(0)
         g_highlight_faces(image, g_faces, g_output_filename)
         image.seek(0)
         h_highlight_faces(image, h_faces, h_output_filename)
 
     return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, g_count=len(g_faces), h_count=len(h_faces['face']), g_faces=g_faces, h_faces=h_faces)
-
-# [END main]
 
 
 # [START detect_face]
