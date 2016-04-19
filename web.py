@@ -112,7 +112,7 @@ def g_highlight_faces(image, faces, output_filename):
 
     for face in faces:
         box = [(v.get('x', 0.0), v.get('y', 0.0)) for v in face['fdBoundingPoly']['vertices']]
-        draw.line(box + [box[0]], width=5, fill='#00ff00')
+        draw.line(box + [box[0]], width=5, fill='#ff8800')
     del draw
     return im.save(output_filename)
 # [END highlight_faces]
@@ -121,7 +121,7 @@ def g_highlight_faces(image, faces, output_filename):
 def h_highlight_faces(image, faces, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
-    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 50)
+    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 30)
     for face in faces['face']:
         left = face.get('left')
         top = face.get('top')
@@ -132,7 +132,7 @@ def h_highlight_faces(image, faces, output_filename):
             age = 'unknown'
         else:
             age = addinfo.get('age')
-        draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#0000FF')
+        draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#01a982')
         draw.text((left,top+height), age, font=fnt, fill='#FFFFFF')
     del draw
     return im.save(output_filename)
