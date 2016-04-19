@@ -2,26 +2,33 @@
 {% block body %}
 <table>
   <tr>
-    <td>Original Image</td>
-    <td colspan="3"><img src={{url_for('static', filename=input_filename)}} width="500"></td>
+    <td colspan="2">Original Image</td>
+  </tr>
+  <tr>
+    <td colspan="2"><center><img src={{url_for('static', filename=input_filename)}} width="500"></center></td>
   </tr>
   <tr>
     <td>Google Vision API Output Image</td>
-    <td colspan="3"><img src={{url_for('static', filename=g_output_filename)}} width="500"></td>
-  </tr>
-  <tr>
     <td>Haven OnDemand Output Image</td>
-    <td colspan="3"><img src={{url_for('static', filename=h_output_filename)}} width="500"></td>
   </tr>
   <tr>
-    <td>Detected faces</td>
-    <td colspan="3">{{ count }}</td>
+    <td><img src={{url_for('static', filename=g_output_filename)}} width="500"></td>
+    <td><img src={{url_for('static', filename=h_output_filename)}} width="500"></td>
   </tr>
   <tr>
-    <td>API output</td>
-    <td>{{ h_faces }}
-      <table>
-        {% for face in faces %}
+    <td colspan=2>Detected faces</td>
+  </tr>
+  <tr>
+    <td>{{ g_count }}</td>
+    <td>{{ h_count }}</td>
+  </tr>
+  <tr>
+    <td colspan=2>API output</td>
+  </tr>
+  <tr>
+    <td>
+      <table background="white">
+        {% for face in g_faces %}
         <tr><td colspan="2">Detected face</td></tr>
         <tr>
           <td>boundingPoly</td>
@@ -66,6 +73,7 @@
         {% endfor %}
       </table>
     </td>
+    <td>{{ h_faces }}</td>
   </tr>
 </table>
 {% endblock %}

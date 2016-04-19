@@ -77,7 +77,7 @@ def upload_file():
         image.seek(0)
         h_highlight_faces(image, h_faces, h_output_filename)
 
-    return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, count=len(g_faces), faces=g_faces, h_faces=h_faces)
+    return render_template('show_result.html', input_filename=infile, g_output_filename=g_outfile, h_output_filename=h_outfile, g_count=len(g_faces), h_count=len(h_faces['face']), g_faces=g_faces, h_faces=h_faces)
 
 # [END main]
 
@@ -127,7 +127,7 @@ def h_highlight_faces(image, faces, output_filename):
         top = face.get('top')
         width = face.get('width')
         height = face.get('height')
-        draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#00ff00')
+        draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#0000FF')
     del draw
     return im.save(output_filename)
 # [END highlight_faces]
