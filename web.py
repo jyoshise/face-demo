@@ -127,7 +127,7 @@ def h_highlight_faces(image, faces, output_filename):
         top = face.get('top')
         width = face.get('width')
         height = face.get('height')
-        draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)) width=5, fill='#00ff00')
+        draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#00ff00')
     del draw
     return im.save(output_filename)
 # [END highlight_faces]
