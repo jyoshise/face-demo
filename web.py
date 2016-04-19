@@ -130,7 +130,7 @@ def h_highlight_faces(image, faces, output_filename):
         addinfo = face.get('additional_information')
         if addinfo == None:
             age = 'unknown'
-        else
+        else:
             age = addinfo.get('age')
         draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#0000FF')
         draw.text((left,top+height), age, font=fnt, fill='#FFFFFF')
