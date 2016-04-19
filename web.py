@@ -121,14 +121,17 @@ def g_highlight_faces(image, faces, output_filename):
 def h_highlight_faces(image, faces, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
-    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 40)
+    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 50)
     for face in faces['face']:
         left = face.get('left')
         top = face.get('top')
         width = face.get('width')
         height = face.get('height')
         addinfo = face.get('additional_information')
-        age =addinfo.get('age')
+        if addinfo = None:
+            age = 'unknown'
+        else
+            age = addinfo.get('age')
         draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#0000FF')
         draw.text((left,top+height), age, font=fnt, fill='#FFFFFF')
     del draw
