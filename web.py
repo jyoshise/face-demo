@@ -9,7 +9,7 @@ import argparse
 import base64
 
 from PIL import Image
-from PIL import ImageDraw, Imagefont
+from PIL import ImageDraw, ImageFont
 
 from googleapiclient import discovery
 import httplib2
