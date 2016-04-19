@@ -128,7 +128,7 @@ def h_highlight_faces(image, faces, output_filename):
         width = face.get('width')
         height = face.get('height')
         draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#0000FF')
-        draw.text((left,top+height),face.get('additional_information'), font=fnt, fill='#FFFFFF')
+        draw.text((left,top+height),face.get('age'), font=fnt, fill='#FFFFFF')
     del draw
     return im.save(output_filename)
 # [END highlight_faces]
