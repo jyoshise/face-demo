@@ -9,7 +9,7 @@ import argparse
 import base64
 
 from PIL import Image
-from PIL import ImageDraw
+from PIL import ImageDraw, Imagefont
 
 from googleapiclient import discovery
 import httplib2
@@ -69,7 +69,7 @@ def upload_file():
         g_faces = detect_face(image, max_results)
 # Haven API
         image.seek(0)
-        h_faces = hodpostrequests('detectfaces', files={'file': image})
+        h_faces = hodpostrequests('detectfaces', files={'file': image}, data={'additional': True})
 
         # Reset the file pointer, so we can read the file again
         image.seek(0)
@@ -121,13 +121,14 @@ def g_highlight_faces(image, faces, output_filename):
 def h_highlight_faces(image, faces, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
-
+    fnt = ImageFont.truetype('Pillow/Tests/fonts/FreeMono.ttf', 10)
     for face in faces['face']:
         left = face.get('left')
         top = face.get('top')
         width = face.get('width')
         height = face.get('height')
         draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=5, fill='#0000FF')
+        draw.text((left,top+height),face.get('additional_information'), font=fnt, fill='#FFFFFF')
     del draw
     return im.save(output_filename)
 # [END highlight_faces]
