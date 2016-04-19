@@ -128,7 +128,7 @@ def h_highlight_faces(image, faces, output_filename):
         width = face.get('width')
         height = face.get('height')
         addinfo = face.get('additional_information')
-        if addinfo = None:
+        if addinfo == None:
             age = 'unknown'
         else
             age = addinfo.get('age')
