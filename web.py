@@ -121,7 +121,7 @@ def g_highlight_faces(image, faces, output_filename):
 def h_highlight_faces(image, faces, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
-    fnt = ImageFont.truetype('Pillow/Tests/fonts/FreeMono.ttf', 10)
+    fnt = ImageFont.truetype('/usr/share/fonts/TTF/Ubuntu-M.ttf', 10)
     for face in faces['face']:
         left = face.get('left')
         top = face.get('top')
