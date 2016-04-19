@@ -121,7 +121,7 @@ def g_highlight_faces(image, faces, output_filename):
 def h_highlight_faces(image, faces, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
-    fnt = ImageFont.load_default()
+    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 40)
     for face in faces['face']:
         left = face.get('left')
         top = face.get('top')
