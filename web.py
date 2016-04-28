@@ -37,7 +37,7 @@ credentials must be specified as environment variable GOOGLE_APPLICATION_CREDENT
 API call for HPE Heaven OnDemand
 API key for HOD must be specified as environment variable HAVEN_API_KEY.
 """
-hodclient = HODClient(apikey=os.environ['HAVEN_API_KEY'], apiversiondefault=1)
+hodclient = HODClient(os.environ['HAVEN_API_KEY'], version="v1")
 hodurl="http://api.havenondemand.com/1/api/sync/{}/v1"
 def hodpostrequests(function,data={},files={}):
                data["apikey"]=os.environ['HAVEN_API_KEY']
