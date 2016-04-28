@@ -8,71 +8,21 @@
     <td colspan="2"><center><img src={{url_for('static', filename=input_filename)}} width="500"></center></td>
   </tr>
   <tr>
-    <td>Google Vision</td>
     <td>HPE Haven OnDemand</td>
   </tr>
   <tr>
-    <td><img src={{url_for('static', filename=g_output_filename)}} width="500"></td>
     <td><img src={{url_for('static', filename=h_output_filename)}} width="500"></td>
   </tr>
   <tr>
     <td colspan=2>Detected faces</td>
   </tr>
   <tr>
-    <td>{{ g_count }}</td>
     <td>{{ h_count }}</td>
   </tr>
   <tr>
     <td colspan=2>API output</td>
   </tr>
   <tr>
-    <td>
-      <table background="white">
-        {% for face in g_faces %}
-        <tr><td colspan="2">Detected face</td></tr>
-        <tr>
-          <td>boundingPoly</td>
-          <td>{{ face.boundingPoly }}</td>
-        </tr>
-        <tr>
-          <td>panAngle</td>
-          <td>{{ face.panAngle }}</td>
-        </tr>
-        <tr>
-          <td>tiltAngle</td>
-          <td>{{ face.tiltAngle }}</td>
-        </tr>
-        <tr>
-          <td>joyLikelihood</td>
-          <td>{{ face.joyLikelihood }}</td>
-        </tr>
-        <tr>
-          <td>sorrowLikelihood</td>
-          <td>{{ face.sorrowLikelihood }}</td>
-        </tr>
-        <tr>
-          <td>angerLikelihood</td>
-          <td>{{ face.angerLikelihood }}</td>
-        </tr>
-        <tr>
-          <td>surpriseLikelihood</td>
-          <td>{{ face.surpriseLikelihood }}</td>
-        </tr>
-        <tr>
-          <td>underExposedLikelihood</td>
-          <td>{{ face.underExposedLikelihood }}</td>
-        </tr>
-        <tr>
-          <td>blurredLikelihood</td>
-          <td>{{ face.blurredLikelihood }}</td>
-        </tr>
-        <tr>
-          <td>headwearLikelihood</td>
-          <td>{{ face.headwearLikelihood }}</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </td>
     <td>{{ h_faces }}</td>
   </tr>
 </table>
