@@ -1,5 +1,5 @@
 applications:
-- name: facedetect-heaven
+- name: facedetect-haven
   memory: 64M
   env:
     HAVEN_API_KEY: 013822a2-0806-4d78-9a56-685a9743be76
