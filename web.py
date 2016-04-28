@@ -12,7 +12,7 @@ from PIL import Image
 from PIL import ImageDraw, ImageFont
 # from googleapiclient import discovery
 # from oauth2client.client import GoogleCredentials
-from havenondemand.hodindex import HODClient
+# from havenondemand.hodindex import HODClient
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/home/stackato/app/static'
