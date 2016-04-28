@@ -10,8 +10,8 @@ from flask import send_from_directory
 from werkzeug import secure_filename
 from PIL import Image
 from PIL import ImageDraw, ImageFont
-from googleapiclient import discovery
-from oauth2client.client import GoogleCredentials
+# from googleapiclient import discovery
+# from oauth2client.client import GoogleCredentials
 from havenondemand.hodclient import *
 
 app = Flask(__name__)
@@ -37,7 +37,7 @@ credentials must be specified as environment variable GOOGLE_APPLICATION_CREDENT
 API call for HPE Heaven OnDemand
 API key for HOD must be specified as environment variable HAVEN_API_KEY.
 """
-hodclient = HODClient(os.environ['HAVEN_API_KEY'], version="v1")
+hodclient = HODClient(os.environ['HAVEN_API_KEY'])
 hodurl="http://api.havenondemand.com/1/api/sync/{}/v1"
 def hodpostrequests(function,data={},files={}):
                data["apikey"]=os.environ['HAVEN_API_KEY']
