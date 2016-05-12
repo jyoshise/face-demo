@@ -4,7 +4,6 @@ import simplejson
 import requests
 import argparse
 import base64
-import httplib2
 
 from flask import Flask, render_template, redirect, url_for, request, make_response
 from flask import send_from_directory
