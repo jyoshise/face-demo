@@ -108,7 +108,6 @@ def upload_file():
 
     if request.method == 'POST':
         file = request.files['file']
-        max_results = request.form['faces']
         if file and allowed_file(file.filename):
             infile = secure_filename(file.filename)
             h_outfile = "h_out_" + secure_filename(file.filename)
