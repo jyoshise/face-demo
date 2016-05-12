@@ -90,7 +90,7 @@ def h_highlight_faces(image, result, output_filename):
 
         faceLandmarks = currFace['faceLandmarks']
         for _, currLandmark in faceLandmarks.iteritems():
-            draw.ellipse((int(currLandmark['x']-1),int(currLandmark['y']-1)),(int(currLandmark['x']+1),int(currLandmark['y']+1)), fill='#01a982')
+            draw.ellipse(((int(currLandmark['x']-1),int(currLandmark['y']-1)),(int(currLandmark['x']+1),int(currLandmark['y']+1))), fill='#01a982')
 
         draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
     del draw
