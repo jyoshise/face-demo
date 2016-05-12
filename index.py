@@ -87,6 +87,8 @@ def h_highlight_faces(image, result, output_filename):
         textToWrite = "%c (%d)" % ( 'M' if faceAttributes['gender']=='male' else 'F', faceAttributes['age'] )
         draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=2, fill='#01a982')
         draw.rectangle(((left,top+height),(left+width,top+height+30)), fill='#01a982')
+        for _, currLandmark in faceLandmarks.iteritems():
+            draw.ellipse((int(currLandmark['x']-1),int(currLandmark['y']-1)),(int(currLandmark['x']+1),int(currLandmark['y']+1)), fill='#01a982')
         draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
     del draw
     return im.save(output_filename)
