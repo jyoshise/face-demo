@@ -123,3 +123,7 @@ def upload_file():
         h_highlight_faces(image, result, h_output_filename)
 
     return render_template('show_result.html', input_filename=infile, h_output_filename=h_outfile, h_faces=result)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
