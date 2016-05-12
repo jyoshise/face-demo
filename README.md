@@ -4,12 +4,12 @@ Written in Python with Flask flamework
 
 Runs on stackato
 
-Powerd by Haven OnDemand API
+Powerd by project Oxford Face API
 
 In order to use:
 
 - set environment variables in manifest.yml:
 
   ```
-  HAVEN_API_KEY: <Your Haven OnDemand API key>
+  AZURE_API_KEY: <Your Azure API key>
   ```

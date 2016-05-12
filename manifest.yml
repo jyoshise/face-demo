@@ -1,8 +1,8 @@
 applications:
-- name: facedetect-haven
+- name: facedetect-oxford
   memory: 64M
   env:
-    HAVEN_API_KEY: 013822a2-0806-4d78-9a56-685a9743be76
+    AZURE_API_KEY: 1b1f1bdc22de4acdbcd7834c7b86887a
   stackato:
     requirements:
       staging:
