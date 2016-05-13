@@ -95,7 +95,7 @@ def h_highlight_faces(image, result, output_filename):
 #        for _, currLandmark in faceLandmarks.iteritems():
 #            draw.ellipse(((int(currLandmark['x']-1),int(currLandmark['y']-1)),(int(currLandmark['x']+1),int(currLandmark['y']+1))), fill=fillcolor)
 
-Draw text label
+# Draw text label
         draw.rectangle(((left,top+height),(left+width,top+height+30)), fill=fillcolor)
         draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
 
