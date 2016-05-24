@@ -91,13 +91,13 @@ def h_highlight_faces(image, result, output_filename):
         draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=2, fill=fillcolor)
 
 # Draw landmarks
-#        faceLandmarks = currFace['faceLandmarks']
-#        for _, currLandmark in faceLandmarks.iteritems():
-#            draw.ellipse(((int(currLandmark['x']-1),int(currLandmark['y']-1)),(int(currLandmark['x']+1),int(currLandmark['y']+1))), fill=fillcolor)
+        faceLandmarks = currFace['faceLandmarks']
+        for _, currLandmark in faceLandmarks.iteritems():
+            draw.ellipse(((int(currLandmark['x']-1),int(currLandmark['y']-1)),(int(currLandmark['x']+1),int(currLandmark['y']+1))), fill=fillcolor)
 
 # Draw text label
-#        draw.rectangle(((left,top+height),(left+width,top+height+30)), fill=fillcolor)
-#        draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
+        draw.rectangle(((left,top+height),(left+width,top+height+30)), fill=fillcolor)
+        draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
 
     del draw
     return im.save(output_filename)
