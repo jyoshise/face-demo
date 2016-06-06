@@ -85,8 +85,7 @@ def h_highlight_faces(image, result, output_filename):
         width = faceRectangle['width']
         height = faceRectangle['height']
         textToWrite = "%c (%d)" % ( 'M' if faceAttributes['gender']=='male' else 'F', faceAttributes['age'] )
-        fillcolor = '#ffffff'
-#        fillcolor = '#44ff00' if faceAttributes['gender']=="male" else '#ff4400'
+        fillcolor = '#44ff00' if faceAttributes['gender']=="male" else '#ff4400'
 
 # Draw outline
         draw.line(((left,top),(left+width,top),(left+width,top+height),(left,top+height),(left,top)), width=2, fill=fillcolor)
@@ -97,8 +96,8 @@ def h_highlight_faces(image, result, output_filename):
             draw.ellipse(((int(currLandmark['x']-1),int(currLandmark['y']-1)),(int(currLandmark['x']+1),int(currLandmark['y']+1))), fill=fillcolor)
 
 # Draw text label
-#        draw.rectangle(((left,top+height),(left+width,top+height+30)), fill=fillcolor)
-#        draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
+        draw.rectangle(((left,top+height),(left+width,top+height+30)), fill=fillcolor)
+        draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
 
     del draw
     return im.save(output_filename)
