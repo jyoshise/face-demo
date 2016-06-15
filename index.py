@@ -97,7 +97,7 @@ def h_highlight_faces(image, result, output_filename):
 
 # Draw text label
 #        draw.rectangle(((left,top+height),(left+width,top+height+30)), fill=fillcolor)
-        draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
+#        draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
 
     del draw
     return im.save(output_filename)
