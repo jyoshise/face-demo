@@ -126,7 +126,7 @@ def upload_file():
             input_filename = app.config['UPLOAD_FOLDER'] + "/" + infile
             h_output_filename = app.config['UPLOAD_FOLDER'] + "/" + h_outfile
             file.save(input_filename)
-
+#
     with open(input_filename, 'rb') as image:
         data = image.read()
         result = processRequest( json, data, headers, params )
