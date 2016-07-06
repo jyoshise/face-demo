@@ -76,7 +76,7 @@ def processRequest( json, data, headers, params = None ):
 def h_highlight_faces(image, result, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
-    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 20)
+    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 40)
     for currFace in result:
         faceRectangle = currFace['faceRectangle']
         faceAttributes = currFace['faceAttributes']
@@ -96,7 +96,7 @@ def h_highlight_faces(image, result, output_filename):
             draw.ellipse(((int(currLandmark['x']-1),int(currLandmark['y']-1)),(int(currLandmark['x']+1),int(currLandmark['y']+1))), fill=fillcolor)
 
 # Draw text label
-        draw.rectangle(((left,top+height),(left+width,top+height+30)), fill=fillcolor)
+        draw.rectangle(((left,top+height),(left+width,top+height+50)), fill=fillcolor)
         draw.text((left,top+height), textToWrite, font=fnt, fill='#ffffff')
 
     del draw
