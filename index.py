@@ -71,7 +71,7 @@ def processRequest( json, data, headers, params = None ):
         break
 
     return result
-
+#
 # [START highlight_faces]
 def h_highlight_faces(image, result, output_filename):
     im = Image.open(image)
