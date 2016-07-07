@@ -56,7 +56,7 @@ def processRequest( json, data, headers, params = None ):
                 break
 
         elif response.status_code == 200 or response.status_code == 201:
-
+#
             if 'content-length' in response.headers and int(response.headers['content-length']) == 0:
                 result = None
             elif 'content-type' in response.headers and isinstance(response.headers['content-type'], str):
@@ -126,6 +126,7 @@ def upload_file():
             input_filename = app.config['UPLOAD_FOLDER'] + "/" + infile
             h_output_filename = app.config['UPLOAD_FOLDER'] + "/" + h_outfile
             file.save(input_filename)
+
 #
     with open(input_filename, 'rb') as image:
         data = image.read()
