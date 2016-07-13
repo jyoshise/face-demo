@@ -108,6 +108,7 @@ def h_highlight_faces(image, result, output_filename):
 # [END highlight_faces]
 
 
+
 @app.route("/")
 def index():
     return render_template('layout.html')
