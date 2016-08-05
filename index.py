@@ -27,6 +27,7 @@ _maxNumRetries = 10
 
 def processRequest( json, data, headers, params = None ):
 
+
     """
     Helper function to process the request to Project Oxford
 
