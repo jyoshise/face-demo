@@ -1,5 +1,5 @@
 applications:
-- name: facedetect-oxford
+- name: face-demo
   memory: 64M
   env:
     AZURE_API_KEY: specify-your-api-key
