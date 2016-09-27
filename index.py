@@ -77,7 +77,7 @@ def processRequest( json, data, headers, params = None ):
 def h_highlight_faces(image, result, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
-    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 40)
+    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 30)
     for currFace in result:
         faceRectangle = currFace['faceRectangle']
         faceAttributes = currFace['faceAttributes']
