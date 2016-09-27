@@ -1,6 +1,6 @@
 applications:
-- name: face-demo
-  memory: 64M
+- name: face-prod
+  memory: 128M
   env:
     AZURE_API_KEY: specify-your-api-key
   stackato:
