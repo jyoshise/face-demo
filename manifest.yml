@@ -1,17 +1,10 @@
 applications:
 - name: face-prod
   memory: 128M
+  instances: 3
   env:
     AZURE_API_KEY: specify-your-api-key
   stackato:
-    autoscale:
-      enabled: true
-      instances:
-        min: 2
-        max: 5
-      cpu:
-        min: 30
-        max: 85
     requirements:
       staging:
         ubuntu:
