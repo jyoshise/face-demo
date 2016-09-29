@@ -1,7 +1,7 @@
 applications:
 - name: face-prod
   memory: 128M
-  instances: 3
+  instances: 2
   env:
     AZURE_API_KEY: specify-your-api-key
   stackato:
