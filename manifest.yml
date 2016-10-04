@@ -9,3 +9,4 @@ applications:
       staging:
         ubuntu:
           - libjpeg-dev
+          
