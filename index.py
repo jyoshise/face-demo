@@ -86,7 +86,7 @@ def h_highlight_faces(image, result, output_filename):
         width = faceRectangle['width']
         height = faceRectangle['height']
         age = faceAttributes['age']
-        age = age-5 if faceAttributes['gender']=='female' else age:
+        age = age-5 if faceAttributes['gender']=='female'
 
         textToWrite = "%c (%d)" % ( 'M' if faceAttributes['gender']=='male' else 'F', age )
         fillcolor = '#55ff00' if faceAttributes['gender']=="male" else '#ff4400'
