@@ -2,7 +2,7 @@ applications:
 - name: face-test
   memory: 64M
   env:
-    AZURE_API_KEY: specify-your-api-key
+    AZURE_API_KEY: aa6229c87b254d4cb31aba602e8c6a5f
   stackato:
     requirements:
       staging:
