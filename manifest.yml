@@ -1,9 +1,9 @@
 applications:
-- name: face-prod
-  memory: 128M
-  instances: 2
+- name: face-demo
+  memory: 64M
+  instances: 1
   env:
-    AZURE_API_KEY: aa6229c87b254d4cb31aba602e8c6a5f
+    AZURE_API_KEY: <set-your-api-key>
   stackato:
     requirements:
       staging:
