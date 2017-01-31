@@ -3,7 +3,7 @@ applications:
   memory: 128M
   instances: 1
   env:
-    AZURE_API_KEY: <set-your-api-key>
+    AZURE_API_KEY: ef64054d31d74404b99b8042b1d33004
   stackato:
     requirements:
       staging:
