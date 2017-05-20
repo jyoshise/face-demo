@@ -8,7 +8,7 @@
       "image": "gitlab-test.dcos:50000/junichi/face-demo:latest",
       "portMappings": [
       	{
-        	"containerPort": 5000,
+        	"containerPort": 80,
         	"protocol": "tcp",
         	"name": "http"
       	}
