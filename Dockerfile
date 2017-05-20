@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
+RUN apk add --update build-base python-dev py-pip jpeg-dev zlib-dev
 ENV LIBRARY_PATH=/lib:/usr/lib
 
 COPY requirements.txt /usr/src/app/
