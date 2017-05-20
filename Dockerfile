@@ -1,7 +1,7 @@
 FROM alpine:latest
 
-RUN apk add --update py-pip
-RUN apk add --update libjpeg jpeg-dev
+RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
+ENV LIBRARY_PATH=/lib:/usr/lib
 
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
