@@ -36,7 +36,7 @@
             url: 'http://192.168.65.90:8080',
             forceUpdate: false,
             filename: 'marathon.json',
-            appid: 'nginx',
+            appid: 'face',
             docker: "gitlab-test.dcos:50000/junichi/face-demo:${gitCommit()}".toString()
         )
     }
