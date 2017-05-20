@@ -13,7 +13,7 @@ from PIL import ImageDraw, ImageFont
 
 # Variables
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = '/home/stackato/app/static'
+app.config['UPLOAD_FOLDER'] = '/usr/src/app/static'
 app.debug = True
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'JPG'])
@@ -77,7 +77,7 @@ def processRequest( json, data, headers, params = None ):
 def h_highlight_faces(image, result, output_filename):
     im = Image.open(image)
     draw = ImageDraw.Draw(im)
-    fnt = ImageFont.truetype('/home/stackato/app/static/Ubuntu-R.ttf', 30)
+    fnt = ImageFont.truetype('/usr/src/app/static/Ubuntu-R.ttf', 30)
     for currFace in result:
         faceRectangle = currFace['faceRectangle']
         faceAttributes = currFace['faceAttributes']

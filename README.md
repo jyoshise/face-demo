@@ -2,7 +2,7 @@
 
 Written in Python with Flask flamework
 
-Runs on stackato
+Runs on DC/OS
 
 Powerd by project Oxford Face API
 

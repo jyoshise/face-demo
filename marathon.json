@@ -1,0 +1,27 @@
+{
+  "id": "/face",
+  "cpus": 0.5,
+  "mem": 64,
+  "instances": 1,
+  "container": {
+    "docker": {
+      "image": "gitlab-test.dcos:50000/junichi/face-demo:latest",
+      "portMappings": [
+      	{
+        	"containerPort": 5000,
+        	"protocol": "tcp",
+        	"name": "http"
+      	}
+      ],
+	    "network": "BRIDGE"
+	  }
+	},
+  "labels": {
+    "DCOS_SERVICE_PORT_INDEX": "0",
+    "DCOS_SERVICE_SCHEME": "http",
+    "DCOS_SERVICE_NAME": "face"
+  },
+  "uris": [
+    "file:///etc/docker.tar.gz"
+  ]
+}
