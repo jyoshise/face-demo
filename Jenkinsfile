@@ -24,7 +24,7 @@
                 usernameVariable: 'GITLAB_USERNAME'
             ]]
         ) {
-            sh "docker login -u ${env.GITLAB_USERNAME} -p ${env.GITLAB_PASSWORD} -e demo@mesosphere.com http://gitlab-test.dcos:50000"
+            sh "docker login -u ${env.GITLAB_USERNAME} -p ${env.GITLAB_PASSWORD} -e demo@mesosphere.com gitlab-test.dcos:50000"
             sh "docker push gitlab-test.dcos:50000/junichi/face-demo:${gitCommit()}"
         }
 
