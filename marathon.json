@@ -5,7 +5,7 @@
   "instances": 1,
   "container": {
     "docker": {
-      "image": "http://gitlab-test.dcos:50000/junichi/face-demo:latest",
+      "image": "gitlab-test.dcos:50000/junichi/face-demo:latest",
       "portMappings": [
       	{
         	"containerPort": 5000,
