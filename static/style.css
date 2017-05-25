@@ -6,6 +6,6 @@ h2              { font-size: 1.2em; }
 table           { border: 4px; }
 td              { background: #aaaaaa; }
 
-.page           { margin: 2em auto; width: 95%; border: 2px solid #white;
+.page           { margin: 2em auto; width: 95%; border: 2px solid white;
                   padding: 0.8em; background: #aaaaaa; }
 .error          { background: #f0d6d6; padding: 0.5em; }
