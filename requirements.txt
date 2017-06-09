@@ -1,7 +1,6 @@
 Flask
 Flask-Script
-psycopg2
 simplejson
 werkzeug
-Pillow==3.1.1
+Pillow
 requests
