@@ -5,7 +5,7 @@
   "instances": 1,
   "container": {
     "docker": {
-      "image": "gitlab.app.dcos.local:50000/junichi/face-demo:latest",
+      "image": "gitlab.app.dcosdemo.local:50000/junichi/face-demo:latest",
       "portMappings": [
       	{
         	"containerPort": 5000,
@@ -21,7 +21,7 @@
     "DCOS_SERVICE_SCHEME": "http",
     "DCOS_SERVICE_NAME": "face",
 		"HAPROXY_GROUP": "external",
-		"HAPROXY_0_VHOST": "face-demo.dcos"
+		"HAPROXY_0_VHOST": "face-demo.app.dcosdemo.local"
   },
   "uris": [
     "file:///etc/docker.tar.gz"

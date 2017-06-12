@@ -12,7 +12,7 @@
 
         // Build Docker image
         stage 'Build'
-        sh "docker build -t gitlab.app.dcos.local:50000/junichi/face-demo:${gitCommit()} ."
+        sh "docker build -t gitlab.app.dcosdemo.local:50000/junichi/face-demo:${gitCommit()} ."
 
         // Log in and push image to GitLab
         stage 'Publish'
@@ -24,8 +24,8 @@
                 usernameVariable: 'GITLAB_USERNAME'
             ]]
         ) {
-            sh "docker login -u ${env.GITLAB_USERNAME} -p ${env.GITLAB_PASSWORD} -e demo@mesosphere.com gitlab.app.dcos.local:50000"
-            sh "docker push gitlab.app.dcos.local:50000/junichi/face-demo:${gitCommit()}"
+            sh "docker login -u ${env.GITLAB_USERNAME} -p ${env.GITLAB_PASSWORD} -e demo@mesosphere.com gitlab.app.dcosdemo.local:50000"
+            sh "docker push gitlab.app.dcosdemo.local:50000/junichi/face-demo:${gitCommit()}"
         }
 
 
@@ -33,10 +33,10 @@
         stage 'Deploy'
 
         marathon(
-            url: 'http://m1.dcos.local:8080',
+            url: 'http://m1.dcosdemo.local:8080',
             forceUpdate: false,
             filename: 'marathon.json',
             appid: 'face',
-            docker: "gitlab.app.dcos.local:50000/junichi/face-demo:${gitCommit()}".toString()
+            docker: "gitlab.app.dcosdemo.local:50000/junichi/face-demo:${gitCommit()}".toString()
         )
     }
