@@ -1,5 +1,5 @@
 {
-  "id": "/face",
+  "id": "cice-demo/face",
   "cpus": 0.5,
   "mem": 64,
   "instances": 1,
