@@ -36,7 +36,7 @@
             url: 'http://m1.dcosdemo.local:8080',
             forceUpdate: false,
             filename: 'marathon.json',
-            appid: 'face',
+            appid: 'cicd-demo/face',
             docker: "gitlab.app.dcosdemo.local:50000/demouser/face-demo:${gitCommit()}".toString()
         )
     }
