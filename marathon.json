@@ -1,11 +1,11 @@
 {
-  "id": "cice-demo/face",
+  "id": "cicd-demo/face-demo",
   "cpus": 0.5,
   "mem": 64,
   "instances": 1,
   "container": {
     "docker": {
-      "image": "gitlab.app.dcosdemo.local:50000/demouser/face-demo:latest",
+      "image": "gitlab.app.dcosdemo.local:50000/demo/face-demo:latest",
       "portMappings": [
       	{
         	"containerPort": 5000,
