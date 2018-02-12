@@ -21,7 +21,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
-_url = 'https://api.projectoxford.ai/face/v1.0/detect'
+_url = 'https://eastasia.api.cognitive.microsoft.com/face/v1.0'
 _key = os.environ['AZURE_API_KEY']
 _maxNumRetries = 10
 
