@@ -5,7 +5,7 @@
   "instances": 1,
   "container": {
     "docker": {
-      "image": "gitlab.app.dcosdemo.local:50000/demo/face-demo:latest",
+      "image": "gitlab.app.dcosdemo.local:50000/demouser/face-demo:latest",
       "portMappings": [
       	{
         	"containerPort": 5000,

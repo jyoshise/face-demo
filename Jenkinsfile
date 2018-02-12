@@ -12,7 +12,7 @@
 
         // Build Docker image
         stage 'Build'
-        sh "docker build -t gitlab.app.dcosdemo.local:50000/demo/face-demo:${gitCommit()} ."
+        sh "docker build -t gitlab.app.dcosdemo.local:50000/demouser/face-demo:${gitCommit()} ."
 
         // Log in and push image to GitLab
         stage 'Publish'
@@ -25,7 +25,7 @@
             ]]
         ) {
             sh "docker login -u ${env.GITLAB_USERNAME} -p ${env.GITLAB_PASSWORD} -e demo@mesosphere.com gitlab.app.dcosdemo.local:50000"
-            sh "docker push gitlab.app.dcosdemo.local:50000/demo/face-demo:${gitCommit()}"
+            sh "docker push gitlab.app.dcosdemo.local:50000/demouser/face-demo:${gitCommit()}"
         }
 
 
@@ -37,6 +37,6 @@
             forceUpdate: false,
             filename: 'marathon.json',
             appid: 'cicd-demo/face',
-            docker: "gitlab.app.dcosdemo.local:50000/demo/face-demo:${gitCommit()}".toString()
+            docker: "gitlab.app.dcosdemo.local:50000/demouser/face-demo:${gitCommit()}".toString()
         )
     }
